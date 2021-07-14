@@ -33,7 +33,7 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.10/main > /etc/apk/repositories; \
     conda update --all --yes && \
     conda config --set auto_update_conda False && \
     # install pytorch cuda
-    conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge && \
+    conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch && \
     # mechine learning package
     conda install numpy scipy pandas scikit-learn nltk && \
     # other package
