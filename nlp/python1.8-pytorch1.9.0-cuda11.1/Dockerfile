@@ -39,7 +39,7 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.10/main > /etc/apk/repositories; \
     # other package
     conda install joblib tqdm pyyaml click -y && \
     # install transformer frame
-    pip install transformers sentencepiece -y && \
+    pip install transformers sentencepiece && \
     # clean conda
     conda clean -tipsy && \
     rm -r "$CONDA_DIR/pkgs/" && \
