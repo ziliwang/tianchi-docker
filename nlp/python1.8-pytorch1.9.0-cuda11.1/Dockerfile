@@ -5,8 +5,6 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.10/main > /etc/apk/repositories; \
     echo http://mirrors.aliyun.com/alpine/v3.10/community >> /etc/apk/repositories && \
     # tools
     apk add --no-cache --virtual=.build-dependencies bash libstdc++ bzip2 unzip glib libxext libxrender wget && \
-    # postgres client
-    apk --no-cache add postgresql-client && \
     # conda depends
     wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
     wget -q -O glibc.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.23-r3/glibc-2.23-r3.apk && \
@@ -14,7 +12,7 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.10/main > /etc/apk/repositories; \
     apk add *.apk && /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc/usr/lib && \
     # minconda
     export CONDA_DIR=/opt/conda && mkdir -p "$CONDA_DIR" && \
-    wget "https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py38_4.8.2-Linux-x86_64.sh" -O miniconda.sh -q && \
+    wget "https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh" -O miniconda.sh -q && \
     bash miniconda.sh -f -b -p "$CONDA_DIR" && export PATH=$CONDA_DIR/bin:$PATH && \
     # minconda set
     # qinghua source
@@ -34,8 +32,6 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.10/main > /etc/apk/repositories; \
     # conda 只对缺失包进行安装，不更新已安装包
     conda update --all --yes && \
     conda config --set auto_update_conda False && \
-    # update python version
-    conda install python=3.8 && \
     # install pytorch cuda
     conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge && \
     # mechine learning package
