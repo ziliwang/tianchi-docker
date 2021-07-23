@@ -6,7 +6,7 @@ RUN export CONDA_DIR=/opt/conda && \
     conda config --set auto_update_conda False && \
     # install pytorch cuda
     # conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch && \
-    conda install curl python=3.8 -y && \
+    conda install curl -y && \
     # install transformer frame
     pip install transformers sentencepiece pytorch-crf numpy scipy pandas scikit-learn nltk matplotlib -i https://mirrors.aliyun.com/pypi/simple/ && \
     # clean conda
