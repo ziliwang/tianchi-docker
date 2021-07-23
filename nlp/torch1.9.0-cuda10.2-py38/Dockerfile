@@ -15,6 +15,6 @@ RUN export CONDA_DIR=/opt/conda && \
     # mkdir -p "$CONDA_DIR/locks" && \
     # chmod 777 "$CONDA_DIR/locks" && \
     # clean pip
-    rm -r /root/.cache &&
+    rm -r /root/.cache
 
 ENV LANG="en_US.utf8" LANGUAGE="en_US:en" CONDA_AUTO_UPDATE_CONDA="false"
