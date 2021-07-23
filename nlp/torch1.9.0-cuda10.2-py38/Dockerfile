@@ -1,6 +1,6 @@
 FROM pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime
 
-RUN export CONDA_DIR=/opt/conda && mkdir -p "$CONDA_DIR" && \
+RUN export CONDA_DIR=/opt/conda && \
     conda config --set ssl_verify no && \
     # conda update --all --yes && \
     conda config --set auto_update_conda False && \
