@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime
+FROM pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime
 
 RUN export CONDA_DIR=/opt/conda && mkdir -p "$CONDA_DIR" && \
     conda config --set ssl_verify no && \
@@ -12,8 +12,8 @@ RUN export CONDA_DIR=/opt/conda && mkdir -p "$CONDA_DIR" && \
     # clean conda
     conda clean -tipsy && \
     rm -r "$CONDA_DIR/pkgs/" && \
-    mkdir -p "$CONDA_DIR/locks" && \
-    chmod 777 "$CONDA_DIR/locks" && \
+    # mkdir -p "$CONDA_DIR/locks" && \
+    # chmod 777 "$CONDA_DIR/locks" && \
     # clean pip
     rm -r /root/.cache &&
 
